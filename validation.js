@@ -1,21 +1,12 @@
-
-
-
-
 const form = document.getElementById('form');
-// const username = document.getElementById('username');
+const username = document.getElementById('username');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
-// const password2 = document.getElementById('password2');
-
-
-
-
+const password2 = document.getElementById('password2');
 
 //Show input error messages
 function showError(input, message) {
     const formControl = input.parentElement;
-
     formControl.className = 'form-control error';
     const small = formControl.querySelector('small');
     small.innerText = message;
@@ -30,9 +21,7 @@ function showSucces(input) {
 //checkRequired fields
 function checkRequired(inputArr) {
     // console.log(inputArr);
-
     inputArr.forEach(function(input){
-
         if (input.value.trim() === '') {
             showError(input,`${getFieldName(input)} is required`)
         } else {
@@ -79,20 +68,17 @@ function checkPasswordMatch(password, password2) {
     }
 }
 
-
 //checkRequired fields
 function getFromInput(inputArr) {
     const inputs = {};
     inputArr.forEach(function(input){
         inputs[input.id] = input.value;
     });
-
     registerUser(inputs);
 }
 
 function registerUser(data) {
     // call api to stote into database
-    ///
     console.log(data);
 }
 
@@ -117,5 +103,4 @@ form.addEventListener('submit',function(event) {
         password,
         password2
     ]);
-
 });
